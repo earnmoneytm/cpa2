@@ -83,26 +83,36 @@
     function playVideo(e) {
       if(e) e.preventDefault();
 
-      // Evento clic para Google Analytics
+      let popunderLaunched = false;
+
+      function launchPopunder() {
+        if(popunderLaunched) return;
+        popunderLaunched = true;
+        if (typeof onClickPop === 'function') {
+          onClickPop();
+        } else {
+          window.open('https://profitableratecpm.com/4d/8b/ee/4d8bee2691dd6843a2afcd1ea03008d2', '_blank');
+        }
+      }
+
+      // Enviar evento a GA y lanzar popunder en callback
       gtag('event', 'click', {
         'event_category': 'video',
         'event_label': 'play_button',
-        'value': 1
+        'value': 1,
+        'event_callback': launchPopunder
       });
 
-      // Lanzar popunder si está disponible
-      if (typeof onClickPop === 'function') {
-        onClickPop();
-      } else {
-        window.open('https://profitableratecpm.com/4d/8b/ee/4d8bee2691dd6843a2afcd1ea03008d2', '_blank');
-      }
-      // No redirigir ni navegar a otro sitio
+      // Timeout de respaldo en caso de que callback no se llame
+      setTimeout(launchPopunder, 1000);
     }
   </script>
 
+  <!-- Script de popunder Adsterra -->
   <script type="text/javascript" src="//pl26871093.profitableratecpm.com/4d/8b/ee/4d8bee2691dd6843a2afcd1ea03008d2.js"></script>
 </body>
 </html>
+
 
 
 
