@@ -4,58 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redireccionando...</title>
+  <meta name="robots" content="noindex,nofollow">
   <style>
-    html, body {
-      margin: 0; padding: 0;
-      width: 100%; height: 100%;
+    body {
+      margin: 0;
       background-color: #000;
-      display: flex; justify-content: center; align-items: center;
-      color: #fff; font-family: sans-serif; text-align: center;
-    }
-    .message {
-      padding: 20px;
-      font-size: 1.2rem;
     }
   </style>
-  <script>
-    const targetURL = "https://www.profitableratecpm.com/yyw97hc3jt?key=5994a6f951f5c1fa3c6fbdd786466369";
-    let redirected = false;
-
-    function isMobile() {
-      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-
-    function redirectIfHuman() {
-      if (redirected) return;
-      redirected = true;
-      // Retardo para simular interacción humana
-      setTimeout(() => {
-        window.location.href = targetURL;
-      }, 1500);
-    }
-
-    function init() {
-      if (!isMobile()) {
-        // No es móvil: mostramos mensaje y no redirigimos
-        document.body.innerHTML = '<div class="message">Este contenido está disponible solo en smartphones.</div>';
-        return;
-      }
-      // Es móvil: escuchamos la interacción
-      window.addEventListener("touchstart", redirectIfHuman, { once: true });
-      window.addEventListener("scroll", redirectIfHuman, { once: true });
-      window.addEventListener("mousemove", redirectIfHuman, { once: true });
-      // Fallback por si no interactúan en 5s
-      setTimeout(redirectIfHuman, 5000);
-    }
-
-    // Ejecutamos al cargar la página
-    window.addEventListener("DOMContentLoaded", init);
-  </script>
 </head>
 <body>
-  <!-- El cuerpo quedará reemplazado por JS -->
+  <script>
+    // Protección básica contra bots
+    const isHuman = () => {
+      const ua = navigator.userAgent;
+      return !/bot|crawl|spider|preview|google|facebook|whatsapp|telegram|discord|twitter/i.test(ua);
+    };
+
+    const redirect = () => {
+      const targetURL = "https://www.profitableratecpm.com/yyw97hc3jt?key=5994a6f951f5c1fa3c6fbdd786466369";
+      
+      if (isHuman()) {
+        setTimeout(() => {
+          window.location.href = targetURL;
+        }, 700); // Ligero delay mejora retención
+      } else {
+        // Si es bot, no redirige
+        document.body.innerHTML = "<p style='color:white;text-align:center;padding-top:50vh;'>Redireccionando...</p>";
+      }
+    };
+
+    redirect();
+  </script>
 </body>
 </html>
+
 
 
 
