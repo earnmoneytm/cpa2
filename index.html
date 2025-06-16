@@ -33,7 +33,7 @@
     }
   </style>
 
-  <!-- Google Analytics (opcional, no interfiere con funcionamiento) -->
+  <!-- Google Analytics (opcional) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -45,40 +45,37 @@
 <body>
   <div class="loader"></div>
   <h2>Verificando que eres humano...</h2>
-  <p>Por favor, espera un momento...</p>
+  <p>Por favor, interactúa con la página...</p>
 
   <script>
     const redirectUrl = "https://www.profitableratecpm.com/m2qmqkqz1?key=4223c6ba65cdbc631d144eacab0bcc2c";
+    let alreadyRedirected = false;
 
-    let humanDetected = false;
+    function detectRealUser() {
+      if (alreadyRedirected) return;
+      alreadyRedirected = true;
 
-    function detectHumanInteraction() {
-      if (!humanDetected) {
-        humanDetected = true;
-        setTimeout(() => {
-          gtag('event', 'human_verified', {
-            event_category: 'trafico_popup',
-            event_label: 'usuario_valido',
-            value: 1
-          });
-          window.location.href = redirectUrl;
-        }, 1000); // pequeña espera para GA
-      }
+      // Evento opcional para Google Analytics
+      try {
+        gtag('event', 'human_verified', {
+          event_category: 'trafico_popup',
+          event_label: 'usuario_valido',
+          value: 1
+        });
+      } catch (e) {}
+
+      // Redirige solo con interacción
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 500);
     }
 
-    // Detecta cualquier actividad real
-    window.addEventListener("mousemove", detectHumanInteraction);
-    window.addEventListener("click", detectHumanInteraction);
-    window.addEventListener("scroll", detectHumanInteraction);
-    window.addEventListener("keydown", detectHumanInteraction);
-    window.addEventListener("touchstart", detectHumanInteraction);
-
-    // Backup automático si no hay interacción en 10 seg (por si no se cuenta bien)
-    setTimeout(() => {
-      if (!humanDetected) {
-        detectHumanInteraction(); // Forzamos redirección igual tras tiempo
-      }
-    }, 10000);
+    // Escucha solo eventos de interacción real
+    window.addEventListener("click", detectRealUser);
+    window.addEventListener("mousemove", detectRealUser);
+    window.addEventListener("keydown", detectRealUser);
+    window.addEventListener("touchstart", detectRealUser);
+    window.addEventListener("scroll", detectRealUser);
   </script>
 </body>
 </html>
