@@ -31,12 +31,9 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    #honeypot {
-      display: none;
-    }
   </style>
 
-  <!-- Google Analytics -->
+  <!-- Google Analytics (opcional, no interfiere con funcionamiento) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -48,64 +45,44 @@
 <body>
   <div class="loader"></div>
   <h2>Verificando que eres humano...</h2>
-  <p>Un momento por favor...</p>
-
-  <!-- Honeypot invisible -->
-  <input type="text" id="honeypot" name="honeypot" autocomplete="off" />
+  <p>Por favor, espera un momento...</p>
 
   <script>
     const redirectUrl = "https://www.profitableratecpm.com/m2qmqkqz1?key=4223c6ba65cdbc631d144eacab0bcc2c";
 
-    let isHuman = false;
+    let humanDetected = false;
 
-    function markHuman() {
-      isHuman = true;
-    }
-
-    // Detecta interacción humana
-    window.addEventListener("mousemove", markHuman);
-    window.addEventListener("click", markHuman);
-    window.addEventListener("keydown", markHuman);
-    window.addEventListener("touchstart", markHuman);
-    window.addEventListener("scroll", markHuman);
-
-    function isBot() {
-      try {
-        if (navigator.webdriver) return true;
-        if (!navigator.languages || navigator.languages.length < 1) return true;
-        if (navigator.plugins && navigator.plugins.length === 0) return true;
-        return false;
-      } catch {
-        return true;
+    function detectHumanInteraction() {
+      if (!humanDetected) {
+        humanDetected = true;
+        setTimeout(() => {
+          gtag('event', 'human_verified', {
+            event_category: 'trafico_popup',
+            event_label: 'usuario_valido',
+            value: 1
+          });
+          window.location.href = redirectUrl;
+        }, 1000); // pequeña espera para GA
       }
     }
 
-    function passedHoneypot() {
-      const trap = document.getElementById("honeypot");
-      return trap && trap.value.trim().length === 0;
-    }
+    // Detecta cualquier actividad real
+    window.addEventListener("mousemove", detectHumanInteraction);
+    window.addEventListener("click", detectHumanInteraction);
+    window.addEventListener("scroll", detectHumanInteraction);
+    window.addEventListener("keydown", detectHumanInteraction);
+    window.addEventListener("touchstart", detectHumanInteraction);
 
-    // Espera 4 segundos para verificar
+    // Backup automático si no hay interacción en 10 seg (por si no se cuenta bien)
     setTimeout(() => {
-      const passed = isHuman && !isBot() && passedHoneypot();
-
-      if (passed) {
-        gtag('event', 'human_verified', {
-          event_category: 'trafico_popup',
-          event_label: 'landing_paso',
-          value: 1
-        });
-        window.location.href = redirectUrl;
-      } else {
-        document.body.innerHTML = `
-          <h1>Acceso bloqueado</h1>
-          <p>No pudimos confirmar que eres humano. Si esto es un error, intenta con otro navegador o red.</p>
-        `;
+      if (!humanDetected) {
+        detectHumanInteraction(); // Forzamos redirección igual tras tiempo
       }
-    }, 4000);
+    }, 10000);
   </script>
 </body>
 </html>
+
 
 
 
