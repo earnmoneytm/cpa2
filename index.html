@@ -16,6 +16,7 @@
   .video-container {
     position: relative;
     width: 90vw; max-width: 600px;
+    cursor: pointer;
   }
   .preview-image {
     width: 100%;
@@ -35,9 +36,9 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 20px hotpink;
-    cursor: pointer;
     animation: pulse 1.5s infinite;
     z-index: 10;
+    pointer-events: none; /* Permite que el clic pase a .video-container */
   }
   .play-button::before {
     content: '';
@@ -74,42 +75,22 @@
 
 </head>
 <body>
-  <div class="video-container">
+  <div class="video-container" onclick="redirectToAd()">
     <img src="https://www.pornxpert.com/contents/videos_screenshots/4000/4767/preview.mp4.jpg" alt="Preview" class="preview-image" />
-    <div class="play-button" onclick="playVideo(event)"></div>
+    <div class="play-button"></div>
   </div>
 
   <script>
-    function playVideo(e) {
-      if(e) e.preventDefault();
-
-      let popunderLaunched = false;
-
-      function launchPopunder() {
-        if(popunderLaunched) return;
-        popunderLaunched = true;
-        if (typeof onClickPop === 'function') {
-          onClickPop();
-        } else {
-          window.open('https://profitableratecpm.com/4d/8b/ee/4d8bee2691dd6843a2afcd1ea03008d2', '_blank');
-        }
-      }
-
-      // Enviar evento a GA y lanzar popunder en callback
+    function redirectToAd() {
       gtag('event', 'click', {
         'event_category': 'video',
         'event_label': 'play_button',
-        'value': 1,
-        'event_callback': launchPopunder
+        'value': 1
       });
 
-      // Timeout de respaldo en caso de que callback no se llame
-      setTimeout(launchPopunder, 1000);
+      window.location.href = 'https://www.profitableratecpm.com/yzmvq78n?key=8ecb5d166f3c46a6bd52bb278155058f';
     }
   </script>
-
-  <!-- Script de popunder Adsterra -->
-  <script type="text/javascript" src="//pl26871093.profitableratecpm.com/4d/8b/ee/4d8bee2691dd6843a2afcd1ea03008d2.js"></script>
 </body>
 </html>
 
