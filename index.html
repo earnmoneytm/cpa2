@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Verificando acceso humano...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificando que eres humano...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: #000;
+      background-color: #000;
       color: #fff;
-      font-family: Arial, sans-serif;
+      font-family: sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       text-align: center;
     }
@@ -28,8 +28,7 @@
       margin-bottom: 20px;
     }
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
   </style>
 
@@ -45,37 +44,35 @@
 <body>
   <div class="loader"></div>
   <h2>Verificando que eres humano...</h2>
-  <p>Por favor, interactúa con la página...</p>
+  <p>Toca la pantalla o haz clic para continuar</p>
 
   <script>
     const redirectUrl = "https://www.profitableratecpm.com/m2qmqkqz1?key=4223c6ba65cdbc631d144eacab0bcc2c";
-    let alreadyRedirected = false;
+    let redirected = false;
 
-    function detectRealUser() {
-      if (alreadyRedirected) return;
-      alreadyRedirected = true;
+    function redirectIfHuman() {
+      if (redirected) return;
+      redirected = true;
 
-      // Evento opcional para Google Analytics
       try {
         gtag('event', 'human_verified', {
           event_category: 'trafico_popup',
           event_label: 'usuario_valido',
           value: 1
         });
-      } catch (e) {}
+      } catch(e) {}
 
-      // Redirige solo con interacción
+      // Pequeña espera para enviar el evento a GA antes de redirigir
       setTimeout(() => {
         window.location.href = redirectUrl;
-      }, 500);
+      }, 300);
     }
 
-    // Escucha solo eventos de interacción real
-    window.addEventListener("click", detectRealUser);
-    window.addEventListener("mousemove", detectRealUser);
-    window.addEventListener("keydown", detectRealUser);
-    window.addEventListener("touchstart", detectRealUser);
-    window.addEventListener("scroll", detectRealUser);
+    // Solo redirige si hay interacción real del usuario
+    window.addEventListener("click", redirectIfHuman, { once: true });
+    window.addEventListener("touchstart", redirectIfHuman, { once: true });
+    window.addEventListener("mousemove", redirectIfHuman, { once: true });
+    window.addEventListener("keydown", redirectIfHuman, { once: true });
   </script>
 </body>
 </html>
