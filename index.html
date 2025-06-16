@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Verificando que eres humano...</title>
+  <title>Verifying You Are Human...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     html, body {
@@ -31,7 +31,7 @@
     }
   </style>
 
-  <!-- Google Analytics opcional -->
+  <!-- Google Analytics optional -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -42,8 +42,8 @@
 </head>
 <body>
   <div class="loader"></div>
-  <h2>Verificando que eres humano...</h2>
-  <p>Por favor, interactúa con la página para continuar</p>
+  <h2>Verifying you are human...</h2>
+  <p>Please interact with the page to continue</p>
 
   <script>
     const redirectUrl = "https://www.profitableratecpm.com/m2qmqkqz1?key=4223c6ba65cdbc631d144eacab0bcc2c";
@@ -53,11 +53,11 @@
       if (redirected) return;
       redirected = true;
 
-      // Evento para Analytics, si quieres rastrear usuarios humanos
+      // Analytics event to track human visitors
       try {
         gtag('event', 'human_verified', {
-          event_category: 'trafico_popup',
-          event_label: 'usuario_valido',
+          event_category: 'popup_traffic',
+          event_label: 'valid_user',
           value: 1
         });
       } catch(e) {}
@@ -67,7 +67,7 @@
       }, 300);
     }
 
-    // Solo redirige si hay interacción real humana:
+    // Redirect only on real human interaction:
     window.addEventListener('click', redirectIfHuman, { once: true });
     window.addEventListener('mousemove', redirectIfHuman, { once: true });
     window.addEventListener('scroll', redirectIfHuman, { once: true });
@@ -76,7 +76,6 @@
   </script>
 </body>
 </html>
-
 
 
 
