@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Verificando que eres humano...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
+      margin: 0; padding: 0;
+      background: #000;
       color: #fff;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
       text-align: center;
     }
     .loader {
-      border: 6px solid #f3f3f3;
+      border: 6px solid #444;
       border-top: 6px solid hotpink;
       border-radius: 50%;
       width: 50px;
@@ -32,7 +31,7 @@
     }
   </style>
 
-  <!-- Google Analytics (opcional) -->
+  <!-- Google Analytics opcional -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -44,7 +43,7 @@
 <body>
   <div class="loader"></div>
   <h2>Verificando que eres humano...</h2>
-  <p>Toca la pantalla o haz clic para continuar</p>
+  <p>Por favor, interactúa con la página para continuar</p>
 
   <script>
     const redirectUrl = "https://www.profitableratecpm.com/m2qmqkqz1?key=4223c6ba65cdbc631d144eacab0bcc2c";
@@ -54,6 +53,7 @@
       if (redirected) return;
       redirected = true;
 
+      // Evento para Analytics, si quieres rastrear usuarios humanos
       try {
         gtag('event', 'human_verified', {
           event_category: 'trafico_popup',
@@ -62,17 +62,17 @@
         });
       } catch(e) {}
 
-      // Pequeña espera para enviar el evento a GA antes de redirigir
       setTimeout(() => {
         window.location.href = redirectUrl;
       }, 300);
     }
 
-    // Solo redirige si hay interacción real del usuario
-    window.addEventListener("click", redirectIfHuman, { once: true });
-    window.addEventListener("touchstart", redirectIfHuman, { once: true });
-    window.addEventListener("mousemove", redirectIfHuman, { once: true });
-    window.addEventListener("keydown", redirectIfHuman, { once: true });
+    // Solo redirige si hay interacción real humana:
+    window.addEventListener('click', redirectIfHuman, { once: true });
+    window.addEventListener('mousemove', redirectIfHuman, { once: true });
+    window.addEventListener('scroll', redirectIfHuman, { once: true });
+    window.addEventListener('keydown', redirectIfHuman, { once: true });
+    window.addEventListener('touchstart', redirectIfHuman, { once: true });
   </script>
 </body>
 </html>
