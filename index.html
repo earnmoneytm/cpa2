@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Verificando acceso humano...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
@@ -31,14 +31,8 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
-    /* Honeypot invisible */
     #honeypot {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-      opacity: 0;
-      pointer-events: none;
+      display: none;
     }
   </style>
 
@@ -46,7 +40,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-H9VLD02NMS');
   </script>
@@ -54,89 +48,65 @@
 <body>
   <div class="loader"></div>
   <h2>Verificando que eres humano...</h2>
-  <p>Por favor, espera un momento.</p>
+  <p>Un momento por favor...</p>
 
-  <!-- Campo honeypot invisible -->
-  <input type="text" id="honeypot" autocomplete="off" />
+  <!-- Honeypot invisible -->
+  <input type="text" id="honeypot" name="honeypot" autocomplete="off" />
 
   <script>
     const redirectUrl = "https://www.profitableratecpm.com/m2qmqkqz1?key=4223c6ba65cdbc631d144eacab0bcc2c";
 
     let isHuman = false;
-    let visible = document.visibilityState === "visible";
+
+    function markHuman() {
+      isHuman = true;
+    }
 
     // Detecta interacción humana
-    const setHuman = () => { isHuman = true; };
-    window.addEventListener("mousemove", setHuman);
-    window.addEventListener("click", setHuman);
-    window.addEventListener("scroll", setHuman);
-    window.addEventListener("touchstart", setHuman);
-    window.addEventListener("keydown", setHuman);
+    window.addEventListener("mousemove", markHuman);
+    window.addEventListener("click", markHuman);
+    window.addEventListener("keydown", markHuman);
+    window.addEventListener("touchstart", markHuman);
+    window.addEventListener("scroll", markHuman);
 
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") {
-        visible = true;
-      }
-    });
-
-    function isAdvancedBot() {
+    function isBot() {
       try {
         if (navigator.webdriver) return true;
         if (!navigator.languages || navigator.languages.length < 1) return true;
-        if (navigator.plugins.length === 0) return true;
-        if (screen.width < 320 || screen.height < 320) return true;
+        if (navigator.plugins && navigator.plugins.length === 0) return true;
         return false;
-      } catch (e) {
+      } catch {
         return true;
       }
     }
 
-    function checkReferrer() {
-      const allowedReferrers = [
-        "popads.net",
-        "www.popads.net",
-        ""
-      ];
-      const ref = document.referrer;
-      if (!ref) return true; // tráfico directo permitido
-      try {
-        const parsedRef = new URL(ref).hostname.replace("www.", "");
-        return allowedReferrers.includes(parsedRef);
-      } catch (e) {
-        return false;
-      }
+    function passedHoneypot() {
+      const trap = document.getElementById("honeypot");
+      return trap && trap.value.trim().length === 0;
     }
 
-    function checkHoneypot() {
-      const trap = document.getElementById('honeypot');
-      return trap && trap.value.trim() !== "";
-    }
-
-    // Verificación final
+    // Espera 4 segundos para verificar
     setTimeout(() => {
-      const isBot = isAdvancedBot();
-      const badRef = !checkReferrer();
-      const baitUsed = checkHoneypot();
+      const passed = isHuman && !isBot() && passedHoneypot();
 
-      if (isHuman && visible && !isBot && !badRef && !baitUsed) {
+      if (passed) {
         gtag('event', 'human_verified', {
           event_category: 'trafico_popup',
-          event_label: 'landing_verificada',
+          event_label: 'landing_paso',
           value: 1
         });
         window.location.href = redirectUrl;
       } else {
         document.body.innerHTML = `
-          <h1>Acceso denegado</h1>
-          <p>No se pudo verificar tu actividad como humana o provienes de una fuente no autorizada.</p>
-          <p>Recomendamos usar un navegador actualizado y acceder desde una fuente válida.</p>
+          <h1>Acceso bloqueado</h1>
+          <p>No pudimos confirmar que eres humano. Si esto es un error, intenta con otro navegador o red.</p>
         `;
-        document.body.style.background = "#111";
       }
-    }, 3500);
+    }, 4000);
   </script>
 </body>
 </html>
+
 
 
 
