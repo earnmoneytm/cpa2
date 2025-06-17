@@ -1,169 +1,58 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Search results - Video encontrado</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0; background: #fff;
-    color: #222;
-  }
-  header {
-    background: #f8f8f8;
-    padding: 12px 20px;
-    border-bottom: 1px solid #ddd;
-  }
-  header h1 {
-    margin: 0; font-weight: normal;
-    font-size: 20px;
-  }
-  .search-bar {
-    margin-top: 10px;
-    display: flex;
-    max-width: 600px;
-  }
-  .search-bar input[type="text"] {
-    flex-grow: 1;
-    padding: 8px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-  }
-  .search-bar button {
-    padding: 8px 16px;
-    border: none;
-    background: #4285f4;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-  }
-  main {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 0 10px;
-  }
-  .video-container {
-    position: relative;
-    margin-top: 20px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    cursor: pointer;
-  }
-  .video-container img {
-    width: 100%;
-    display: block;
-    user-select: none;
-  }
-  .play-button {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px; height: 80px;
-    background: #ff3366;
-    border-radius: 50%;
-    box-shadow: 0 0 20px #ff3366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: pulse 1.5s infinite;
-  }
-  .play-button::before {
-    content: '';
-    border-style: solid;
-    border-width: 16px 0 16px 26px;
-    border-color: transparent transparent transparent white;
-    margin-left: 6px;
-  }
-  @keyframes pulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px #ff3366; }
-    50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 30px #ff3366; }
-  }
-  .disclaimer {
-    font-size: 14px;
-    color: #555;
-    margin-top: 15px;
-    text-align: center;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Continue</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H9VLD02NMS');
-</script>
+    .cta-button {
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-H9VLD02NMS');
+  </script>
 </head>
 <body>
-
-<header>
-  <h1>Google Search</h1>
-  <form class="search-bar" onsubmit="return false;">
-    <input type="text" placeholder="Buscar videos interesantes..." value="Video para adultos" />
-    <button disabled>Buscar</button>
-  </form>
-</header>
-
-<main>
-  <p>Resultados de búsqueda para <strong>"Video para adultos"</strong></p>
-
-  <div class="video-container" id="videoFake">
-    <img src="https://www.pornxpert.com/contents/videos_screenshots/4000/4767/preview.mp4.jpg" alt="Video preview" />
-    <div class="play-button"></div>
-  </div>
-
-  <p class="disclaimer">Haz clic en el video para continuar.</p>
-</main>
-
-<script>
-  const redirectUrl = 'https://www.profitableratecpm.com/vrnbr8pt?key=67320c384bf7b5f34dbf7369c25f97e9';
-
-  let interacted = false;
-
-  function redirectIfHuman() {
-    if(interacted) {
-      window.location.href = redirectUrl;
-    }
-  }
-
-  // Listen to user interactions
-  function userInteracted() {
-    interacted = true;
-    // Send event to Google Analytics
-    gtag('event', 'interaction', {
-      'event_category': 'user',
-      'event_label': 'human_verified',
-      'value': 1,
-    });
-    // Redirect after small delay
-    setTimeout(() => {
-      redirectIfHuman();
-    }, 300);
-  }
-
-  // Add interaction listeners
-  document.getElementById('videoFake').addEventListener('click', userInteracted);
-  document.addEventListener('mousemove', userInteracted, {once: true});
-  document.addEventListener('touchstart', userInteracted, {once: true});
-  document.addEventListener('scroll', userInteracted, {once: true});
-
-  // If no interaction after 30 seconds, do nothing
-  setTimeout(() => {
-    if(!interacted) {
-      console.log('No interaction detected; no redirect.');
-    }
-  }, 30000);
-</script>
-
+  <a href="https://www.profitableratecpm.com/yhij5ebt?key=68e4abcad91dd73d9992437ffc05dbd6"
+     class="cta-button"
+     onclick="gtag('event', 'click', { 'event_category': 'CTA', 'event_label': 'Continue Button' });">
+    Continue
+  </a>
 </body>
 </html>
+
+
 
 
 
