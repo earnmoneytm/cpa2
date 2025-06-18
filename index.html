@@ -1,35 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <title>Video para adultos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Continue</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      height: 100vh;
+    html, body {
+      margin: 0; padding: 0;
+      background: black;
+      height: 100%; width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
-    .cta-button {
-      background: linear-gradient(to right, #0072ff, #00c6ff);
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 50px;
+    .video-container {
+      position: relative;
+      width: 90vw; max-width: 600px;
       cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .cta-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+    .preview-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      user-select: none;
+    }
+    .play-button {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px; height: 80px;
+      background: hotpink;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px hotpink;
+      animation: pulse 1.5s infinite;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .play-button::before {
+      content: '';
+      display: inline-block;
+      width: 0; height: 0;
+      border-left: 18px solid white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+    }
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 20px hotpink;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 0 30px hotpink;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 20px hotpink;
+      }
     }
   </style>
 
@@ -39,16 +70,32 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-H9VLD02NMS');
   </script>
 </head>
 <body>
-  <a href="https://www.profitableratecpm.com/yhij5ebt?key=68e4abcad91dd73d9992437ffc05dbd6"
-     class="cta-button"
-     onclick="gtag('event', 'click', { 'event_category': 'CTA', 'event_label': 'Continue Button' });">
-    Continue
-  </a>
+  <div class="video-container" onclick="redirectToAd()">
+    <img src="https://www.pornxpert.com/contents/videos_screenshots/4000/4767/preview.mp4.jpg" alt="Preview" class="preview-image" />
+    <div class="play-button"></div>
+  </div>
+
+  <script>
+    function redirectToAd() {
+      gtag('event', 'click', {
+        event_category: 'video',
+        event_label: 'play_button',
+        value: 1,
+        event_callback: function() {
+          window.location.href = 'https://www.profitableratecpm.com/yhij5ebt?key=68e4abcad91dd73d9992437ffc05dbd6';
+        }
+      });
+
+      // En caso de que el callback falle, redirecciona forzosamente después de 1s
+      setTimeout(function() {
+        window.location.href = 'https://www.profitableratecpm.com/yhij5ebt?key=68e4abcad91dd73d9992437ffc05dbd6';
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
 
