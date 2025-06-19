@@ -1,18 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=https://www.profitableratecpm.com/yhij5ebt?key=68e4abcad91dd73d9992437ffc05dbd6">
-  <title>Redireccionando...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Privado</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      cursor: pointer;
+    }
+
+    .video-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70px;
+      height: 70px;
+      background-color: white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 1.5s infinite;
+    }
+
+    .play-button::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #000;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 5px;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
-    // Redirección adicional por JS para mayor compatibilidad
-    window.location.href = "https://www.profitableratecpm.com/yhij5ebt?key=68e4abcad91dd73d9992437ffc05dbd6";
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-H9VLD02NMS');
   </script>
 </head>
 <body>
-  <p>Redireccionando... Si no eres redirigido, <a href="https://www.profitableratecpm.com/yhij5ebt?key=68e4abcad91dd73d9992437ffc05dbd6">haz clic aquí</a>.</p>
+
+  <div class="video-container" onclick="handleClick()">
+    <img src="https://video.damplips.com/pics/wp-content/uploads/2015/10/sexy-girlfriend-doggy-style.jpg" alt="Video preview" />
+    <div class="play-button"></div>
+  </div>
+
+  <script>
+    function handleClick() {
+      gtag('event', 'clic_video', {
+        'event_category': 'interacción',
+        'event_label': 'Play en imagen',
+        'value': 1
+      });
+      window.location.href = "https://www.profitableratecpm.com/pjw8zntuv?key=552b1a3824090024006f669cad1d96a1";
+    }
+  </script>
+
 </body>
 </html>
+
 
 
 
