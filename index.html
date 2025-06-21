@@ -1,103 +1,95 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Privado</title>
+  <title>Verify You Are Human</title>
   <style>
-    body {
+    body, html {
       margin: 0;
-      background-color: #000;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #f9fafb, #e2e8f0);
+      color: #1a202c;
+      overflow-x: hidden;
+    }
+
+    .container {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      padding: 2rem;
+      text-align: center;
     }
 
-    .video-container {
-      position: relative;
-      width: 100%;
-      max-width: 500px;
-      cursor: pointer;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
-    .video-container img {
-      width: 100%;
-      height: auto;
-      display: block;
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
     }
 
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 70px;
-      height: 70px;
-      background-color: white;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: pulse 1.5s infinite;
+    .arrow {
+      animation: bounce 2s infinite;
+      font-size: 3rem;
+      margin-top: 2rem;
+      color: #4a5568;
     }
 
-    .play-button::before {
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border-left: 20px solid #000;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      margin-left: 5px;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
     }
 
-    @keyframes pulse {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.15);
-        opacity: 0.7;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-      }
+    .spacer {
+      height: 150vh; /* Space to scroll */
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      p { font-size: 1rem; }
+      .arrow { font-size: 2.5rem; }
     }
   </style>
-
-  <!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-H9VLD02NMS');
   </script>
 </head>
 <body>
-
-  <div class="video-container" onclick="handleClick()">
-    <img src="https://video.damplips.com/pics/wp-content/uploads/2015/10/sexy-girlfriend-doggy-style.jpg" alt="Video preview" />
-    <div class="play-button"></div>
+  <div class="container">
+    <h1>Just One Simple Step</h1>
+    <p>To verify you're human, please scroll down. This helps us prevent automated access and ensure a secure experience.</p>
+    <div class="arrow">⬇️</div>
   </div>
 
-  <script>
-    function handleClick() {
-      gtag('event', 'clic_video', {
-        'event_category': 'interacción',
-        'event_label': 'Play en imagen',
-        'value': 1
-      });
-      window.location.href = "https://www.profitableratecpm.com/iuphw370?key=40074d7ae63f94cdaa704d54c0e3ddf4";
-    }
-  </script>
+  <div class="spacer"></div>
 
+  <script>
+    let redirected = false;
+
+    window.addEventListener('scroll', () => {
+      if (!redirected && window.scrollY > 50) {
+        redirected = true;
+        setTimeout(() => {
+          window.location.href = "https://www.profitableratecpm.com/zxitc344py?key=946bf48a0f354d714a32e32f82ab16e4";
+        }, 200); // Small delay to ensure human-like behavior
+      }
+    });
+  </script>
 </body>
 </html>
+
 
 
 
