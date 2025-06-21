@@ -1,95 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verify You Are Human</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continue</title>
   <style>
-    body, html {
+    body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #f9fafb, #e2e8f0);
-      color: #1a202c;
-      overflow-x: hidden;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
 
     .container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      text-align: center;
+      padding: 20px;
     }
 
     h1 {
       font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
       margin-bottom: 2rem;
     }
 
-    .arrow {
-      animation: bounce 2s infinite;
-      font-size: 3rem;
-      margin-top: 2rem;
-      color: #4a5568;
+    .continue-btn {
+      display: inline-block;
+      background-color: #e50914;
+      color: white;
+      font-size: 2rem;
+      padding: 1.2rem 3rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px #e50914;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-    }
-
-    .spacer {
-      height: 150vh; /* Space to scroll */
+    .continue-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #e50914;
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 1.5rem; }
-      p { font-size: 1rem; }
-      .arrow { font-size: 2.5rem; }
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .continue-btn {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+      }
     }
   </style>
-  <!-- Google tag (gtag.js) -->
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-H9VLD02NMS');
   </script>
 </head>
 <body>
   <div class="container">
-    <h1>Just One Simple Step</h1>
-    <p>To verify you're human, please scroll down. This helps us prevent automated access and ensure a secure experience.</p>
-    <div class="arrow">⬇️</div>
+    <h1>Click the button below to continue</h1>
+    <button class="continue-btn" onclick="handleClick()">Continue</button>
   </div>
 
-  <div class="spacer"></div>
-
   <script>
-    let redirected = false;
+    function handleClick() {
+      gtag('event', 'click', {
+        'event_category': 'Button',
+        'event_label': 'Continue Button Clicked'
+      });
 
-    window.addEventListener('scroll', () => {
-      if (!redirected && window.scrollY > 50) {
-        redirected = true;
-        setTimeout(() => {
-          window.location.href = "https://www.profitableratecpm.com/zxitc344py?key=946bf48a0f354d714a32e32f82ab16e4";
-        }, 200); // Small delay to ensure human-like behavior
-      }
-    });
+      window.location.href = "https://www.profitableratecpm.com/zxitc344py?key=946bf48a0f354d714a32e32f82ab16e4";
+    }
   </script>
 </body>
 </html>
-
 
 
 
