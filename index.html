@@ -5,34 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Continue</title>
   <style>
-    /* Reset básico */
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       padding: 0;
       background-color: #000;
       color: #fff;
       font-family: Arial, sans-serif;
-
-      /* Flexbox para centrar todo */
       display: flex;
       justify-content: center;
       align-items: center;
-
-      /* Para que tome toda la altura visible */
       height: 100vh;
-
-      /* Texto centrado */
       text-align: center;
     }
 
     .container {
       padding: 20px;
-      max-width: 400px; /* limita ancho máximo para no estirarse demasiado */
-      width: 90%; /* ancho adaptable */
+      max-width: 400px;
+      width: 90%;
     }
 
     h1 {
@@ -48,39 +37,6 @@
       margin-bottom: 2rem;
       box-shadow: 0 0 15px #e50914;
     }
-
-    .continue-btn {
-      display: inline-block;
-      background-color: #e50914;
-      color: white;
-      font-size: 2rem;
-      padding: 1.2rem 3rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      text-transform: uppercase;
-      box-shadow: 0 0 20px #e50914;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      width: 100%; /* que el botón tome el ancho completo */
-      max-width: 300px;
-    }
-
-    .continue-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px #e50914;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      .continue-btn {
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
-        max-width: 100%; /* botón ocupa todo en móvil */
-      }
-    }
   </style>
 
   <!-- Google Analytics -->
@@ -91,22 +47,24 @@
     gtag('js', new Date());
     gtag('config', 'G-H9VLD02NMS');
   </script>
-</head>
-<body>
-  <div class="container">
-    <button class="continue-btn" onclick="handleClick()">Continue</button>
-  </div>
 
   <script>
-    function handleClick() {
-      gtag('event', 'click', {
-        'event_category': 'Button',
-        'event_label': 'Continue Button Clicked'
+    // Redirigir automáticamente al cargar la página
+    window.onload = function() {
+      gtag('event', 'auto_redirect', {
+        'event_category': 'Redirect',
+        'event_label': 'Auto Redirect to Offer'
       });
 
       window.location.href = "https://t.acrsmartcam.com/341879/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN";
-    }
+    };
   </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Loading Offer...</h1>
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Loading" />
+  </div>
 </body>
 </html>
 
