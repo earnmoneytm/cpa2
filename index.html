@@ -1,91 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Continue</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      overflow-y: scroll;
-    }
-    .container {
-      padding: 20px;
-      max-width: 400px;
-      width: 90%;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      line-height: 1.3;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 15px #e50914;
-    }
-  </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-H9VLD02NMS');
-  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Continue</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .btn {
+    background: linear-gradient(135deg, #ff004f, #ff6a00);
+    color: white;
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff004f;
+    animation: pulse 2s infinite;
+    transition: transform 0.2s ease;
+  }
+  .btn:hover {
+    transform: scale(1.05);
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 20px #ff004f; }
+    50% { box-shadow: 0 0 40px #ff6a00; }
+    100% { box-shadow: 0 0 20px #ff004f; }
+  }
+</style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VLD02NMS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-H9VLD02NMS');
+</script>
 </head>
 <body>
-  <div class="container">
-    <h1>Loading Offer...</h1>
-    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Loading..." />
-  </div>
+  <button class="btn" onclick="handleClick()">Continue</button>
 
   <script>
-    (function () {
-      const ua = navigator.userAgent.toLowerCase();
-
-      const isBot = /bot|crawl|spider|curl|wget|python|fetch|httpclient|java|axios|headless|phantom|scrapy|node|go-http|selenium/.test(ua);
-      const isHeadless = ua.includes("headless") || ua.includes("phantom");
-      const isWebDriver = navigator.webdriver;
-
-      // Mantén solo lo más confiable
-      if (isBot || isHeadless || isWebDriver) {
-        document.body.innerHTML = "<h1>Service temporarily unavailable</h1>";
-        return;
+    function handleClick() {
+      if (typeof gtag === "function") {
+        gtag('event', 'click_continue', {
+          event_category: 'Engagement',
+          event_label: 'Continue Button',
+          value: 1
+        });
       }
-
-      // Redirección tras interacción
-      let redirected = false;
-      const redirect = () => {
-        if (redirected) return;
-        redirected = true;
-
-        setTimeout(() => {
-          if (typeof gtag === "function") {
-            gtag('event', 'user_redirect', {
-              event_category: 'Redirect',
-              event_label: 'Mobile/Desktop Redirect'
-            });
-          }
-          window.location.href = "https://www.profitableratecpm.com/xvfpjymkd?key=8003d76a053acb060070b927d9f5622b";
-        }, 1000);
-      };
-
-      // Cubre interacción desde móvil, PC y tablets
-      ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(event => {
-        window.addEventListener(event, redirect, { once: true });
-      });
-    })();
+      setTimeout(() => {
+        window.location.href = "https://www.profitableratecpm.com/gw4up6d53u?key=62b45f895c38472b6dc490b7d0cfc07c";
+      }, 200);
+    }
   </script>
 </body>
 </html>
