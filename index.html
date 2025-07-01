@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>🔥 Mujeres calientes cerca de ti 🔞</title>
+<title>🔥 Hot women near you 🔞</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QB3LYNWLZ6"></script>
 <script>
@@ -71,34 +71,20 @@
 </head>
 <body>
   <div class="container">
-    <h1>🔥 Mujeres calientes en <span id="city">tu ciudad</span></h1>
-    <img src="https://idyllic.app/wp-content/uploads/2024/03/346078.jpeg" alt="Mujeres atractivas" />
-    <p>¿Eres mayor de 18 y buscas una cita esta noche?</p>
-    <p><strong>5 mujeres solteras en <span id="city2">tu ciudad</span> están esperando por ti.</strong></p>
-    <div class="timer">⏰ ¡Quedan <span id="time-left">15</span> minutos para registrarte gratis!</div>
-    <button class="btn" onclick="gtag('event', 'PopClick'); window.location.href='https://t.ancdu.link/341879/6834/0?bo=2753,2754,2755,2756&po=6456&aff_sub5=SF_006OG000004lmDN'">
-      Sí, quiero conocerlas ahora
+    <h1>🔥 Hot women in <span id="city">your city</span></h1>
+    <img src="https://idyllic.app/wp-content/uploads/2024/03/346078.jpeg" alt="Attractive women" />
+    <p>Are you 18 or older and looking for a date tonight?</p>
+    <p><strong>5 single women in <span id="city2">your city</span> are waiting for you.</strong></p>
+    <div class="timer">⏰ Only <span id="time-left">15</span> minutes left to sign up for free!</div>
+    <button class="btn" onclick="gtag('event', 'PopClick'); window.location.href='https://t.ancdu.link/341879/7272?bo=2753,2754,2755,2756&popUnder=true&aff_sub5=SF_006OG000004lmDN'">
+      Yes, I want to meet them now
     </button>
-    <p class="notice">* Solo para mayores de 18 años. Mujeres reales. Registro gratis y seguro.</p>
+    <p class="notice">* For adults 18+. Real women. Free and safe registration.</p>
   </div>
 
 <script>
-// GeoIP simple usando ipapi.co
-fetch('https://ipapi.co/json/')
-  .then(response => response.json())
-  .then(data => {
-    const city = data.city || 'tu ciudad';
-    document.getElementById('city').textContent = city;
-    document.getElementById('city2').textContent = city;
-  })
-  .catch(() => {
-    // fallback
-    document.getElementById('city').textContent = 'tu ciudad';
-    document.getElementById('city2').textContent = 'tu ciudad';
-  });
-
-// Temporizador regresivo 15 minutos
-let timeLeft = 15 * 60; // 15 minutos en segundos
+// Countdown timer: 15 minutes
+let timeLeft = 15 * 60;
 const timeElem = document.getElementById('time-left');
 
 function updateTimer() {
@@ -109,7 +95,6 @@ function updateTimer() {
     timeLeft--;
     setTimeout(updateTimer, 1000);
   } else {
-    // Cuando se acaba el tiempo, puedes deshabilitar el botón o mostrar mensaje
     timeElem.textContent = '0:00';
   }
 }
@@ -118,7 +103,6 @@ updateTimer();
 </script>
 </body>
 </html>
-
 
 
 
